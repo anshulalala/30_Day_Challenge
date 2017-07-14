@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if let challenge = UserDefaults.standard.value(forKey: "challenge") as? String {
+            print(challenge)
+            let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+            let initialVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarViewController
+            initialVC.challenge = challenge
+            self.window?.rootViewController = initialVC
+            self.window?.makeKeyAndVisible()
+            //go to calendar
+        }
+        
         return true
     }
 

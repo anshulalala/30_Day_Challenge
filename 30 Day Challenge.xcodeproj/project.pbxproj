@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1EA747AE6EF3E6DE52FF5D /* Pods_30_Day_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */; };
+		8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */; };
+		8A3677E91F192FC800EC855C /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A3677E81F192FC800EC855C /* CellView.xib */; };
+		8A3677EB1F19320800EC855C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3677EA1F19320800EC855C /* CellView.swift */; };
 		8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE01F1687CF0081D93E /* AppDelegate.swift */; };
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
 		8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BE41F1687CF0081D93E /* Main.storyboard */; };
@@ -16,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_30_Day_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		8A3677E81F192FC800EC855C /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		8A3677EA1F19320800EC855C /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		8A745BDD1F1687CF0081D93E /* 30 Day Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 Day Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A745BE01F1687CF0081D93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,7 @@
 		8A745BEA1F1687CF0081D93E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A745BED1F1687CF0081D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A745BEF1F1687CF0081D93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1EA747AE6EF3E6DE52FF5D /* Pods_30_Day_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E08AF2BBB8628263970055B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A2CA4351F169C010070C0E0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8A745BE41F1687CF0081D93E /* Main.storyboard */,
+				8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8A2CA4361F169C0A0070C0E0 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A745BE21F1687CF0081D93E /* ViewController.swift */,
+				8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		8A2CA4371F169D670070C0E0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A745BEF1F1687CF0081D93E /* Info.plist */,
+				8A3677E81F192FC800EC855C /* CellView.xib */,
+				8A3677EA1F19320800EC855C /* CellView.swift */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		8A745BD41F1687CF0081D93E = {
 			isa = PBXGroup;
 			children = (
 				8A745BDF1F1687CF0081D93E /* 30 Day Challenge */,
 				8A745BDE1F1687CF0081D93E /* Products */,
+				D9239778193807CD6365037C /* Pods */,
+				2E08AF2BBB8628263970055B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +106,22 @@
 			isa = PBXGroup;
 			children = (
 				8A745BE01F1687CF0081D93E /* AppDelegate.swift */,
-				8A745BE21F1687CF0081D93E /* ViewController.swift */,
-				8A745BE41F1687CF0081D93E /* Main.storyboard */,
+				8A2CA4361F169C0A0070C0E0 /* View Controller */,
+				8A2CA4351F169C010070C0E0 /* Storyboards */,
 				8A745BEA1F1687CF0081D93E /* Assets.xcassets */,
-				8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */,
-				8A745BEF1F1687CF0081D93E /* Info.plist */,
+				8A2CA4371F169D670070C0E0 /* Support Files */,
 				8A745BE71F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld */,
 			);
 			path = "30 Day Challenge";
+			sourceTree = "<group>";
+		};
+		D9239778193807CD6365037C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */,
+				24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A745BF21F1687CF0081D93E /* Build configuration list for PBXNativeTarget "30 Day Challenge" */;
 			buildPhases = (
+				AD3E84450C452D4648F2D604 /* [CP] Check Pods Manifest.lock */,
 				8A745BD91F1687CF0081D93E /* Sources */,
 				8A745BDA1F1687CF0081D93E /* Frameworks */,
 				8A745BDB1F1687CF0081D93E /* Resources */,
+				81B3528A100C8BAFB51EA2C9 /* [CP] Embed Pods Frameworks */,
+				5213F616A8B9C7D3B81DA529 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3677E91F192FC800EC855C /* CellView.xib in Resources */,
 				8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */,
 				8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */,
 				8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */,
@@ -134,11 +195,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5213F616A8B9C7D3B81DA529 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81B3528A100C8BAFB51EA2C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD3E84450C452D4648F2D604 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A745BD91F1687CF0081D93E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */,
+				8A3677EB1F19320800EC855C /* CellView.swift in Sources */,
 				8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */,
 				8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */,
 				8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */,
@@ -264,6 +375,7 @@
 		};
 		8A745BF31F1687CF0081D93E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "30 Day Challenge/Info.plist";
@@ -276,6 +388,7 @@
 		};
 		8A745BF41F1687CF0081D93E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "30 Day Challenge/Info.plist";
@@ -305,6 +418,7 @@
 				8A745BF41F1687CF0081D93E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
