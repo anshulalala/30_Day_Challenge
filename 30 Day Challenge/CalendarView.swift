@@ -1,5 +1,5 @@
 //
-//  CellView.swift
+//  CalendarView.swift
 //  30 Day Challenge
 //
 //  Created by Anshula Singh on 7/14/17.
@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 
-class CellView: JTAppleCell {
-    
-    @IBOutlet weak var dayLabel: UILabel!
+class CalendarView: UIViewController {
     
 }

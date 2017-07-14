@@ -11,6 +11,7 @@
 		8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */; };
 		8A3677E91F192FC800EC855C /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A3677E81F192FC800EC855C /* CellView.xib */; };
 		8A3677EB1F19320800EC855C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3677EA1F19320800EC855C /* CellView.swift */; };
+		8A3677ED1F1941BD00EC855C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3677EC1F1941BD00EC855C /* CalendarView.swift */; };
 		8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE01F1687CF0081D93E /* AppDelegate.swift */; };
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
 		8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BE41F1687CF0081D93E /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8A3677E81F192FC800EC855C /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		8A3677EA1F19320800EC855C /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		8A3677EC1F1941BD00EC855C /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8A745BDD1F1687CF0081D93E /* 30 Day Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 Day Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A745BE01F1687CF0081D93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				8A745BEF1F1687CF0081D93E /* Info.plist */,
 				8A3677E81F192FC800EC855C /* CellView.xib */,
 				8A3677EA1F19320800EC855C /* CellView.swift */,
+				8A3677EC1F1941BD00EC855C /* CalendarView.swift */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */,
 				8A3677EB1F19320800EC855C /* CellView.swift in Sources */,
+				8A3677ED1F1941BD00EC855C /* CalendarView.swift in Sources */,
 				8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */,
 				8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */,
 				8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */,

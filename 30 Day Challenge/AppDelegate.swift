@@ -21,11 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let challenge = UserDefaults.standard.value(forKey: "challenge") as? String {
             print(challenge)
             let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-            let initialVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarViewController
-            initialVC.challenge = challenge
-            self.window?.rootViewController = initialVC
-            self.window?.makeKeyAndVisible()
-            //go to calendar
+            
+            //This code digs deeper into the navigation and tab bar VC in order to go access Calendar 
+            if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as? UITabBarController {
+                if let initialVC = tabBarVC.navigationController?.topViewController as? CalendarViewController {
+    
+                    initialVC.challenge = challenge
+                    self.window?.rootViewController = initialVC
+                    self.window?.makeKeyAndVisible()
+                    //go to calendar
+                }
+                
+                
+            }
         }
         
         return true
