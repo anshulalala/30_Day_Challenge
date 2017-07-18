@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -69,8 +70,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="260" y="36"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Ib Calendar Data Source-->
         <scene sceneID="uMx-l3-oA5">
             <objects>
                 <viewController storyboardIdentifier="CalendarVC" id="MRe-Zh-YgE" customClass="CalendarViewController" customModule="_0_Day_Challenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,27 +84,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1RI-Cj-tIl" userLabel="calendarView">
-                                <rect key="frame" x="67" y="121" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ima-JB-1av" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="16" y="72" width="343" height="225"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="qaI-45-SEa"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="niS-eU-lbw">
+                                    <size key="itemSize" width="95" height="92"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="g4i-KZ-svw" customClass="CustomCell" customModule="_0_Day_Challenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="95" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="95" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-xO-Em2">
+                                                    <rect key="frame" x="26" y="36" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="XYS-xO-Em2" firstAttribute="centerX" secondItem="g4i-KZ-svw" secondAttribute="centerX" id="o6P-WK-acz"/>
+                                            <constraint firstItem="XYS-xO-Em2" firstAttribute="centerY" secondItem="g4i-KZ-svw" secondAttribute="centerY" id="pSN-gf-DrH"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="XYS-xO-Em2" id="Otv-zW-bjS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="ibCalendarDataSource" destination="MRe-Zh-YgE" id="dMZ-nM-7EU"/>
+                                    <outlet property="ibCalendarDelegate" destination="MRe-Zh-YgE" id="2dx-t0-Oj5"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ima-JB-1av" firstAttribute="top" secondItem="9B0-1V-AfU" secondAttribute="bottom" constant="8" id="TFe-F4-0pj"/>
+                            <constraint firstItem="ima-JB-1av" firstAttribute="leading" secondItem="UKt-JX-Yq2" secondAttribute="leadingMargin" id="c5t-va-ynn"/>
+                            <constraint firstItem="ima-JB-1av" firstAttribute="trailing" secondItem="UKt-JX-Yq2" secondAttribute="trailingMargin" id="nBW-rI-9Fo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qWG-kM-ePh"/>
                     <connections>
-                        <outlet property="calendarView" destination="1RI-Cj-tIl" id="ENW-9a-MwW"/>
+                        <outlet property="calendarView" destination="ima-JB-1av" id="g20-F0-4Fw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjo-bj-iDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3095.1999999999998" y="36.431784107946029"/>
+            <point key="canvasLocation" x="3032.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wHv-Kz-AYe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EVT-OZ-Vvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="fWM-j1-kOT" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3ZS-OV-2yD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -113,6 +156,7 @@
                         <segue destination="FSK-5B-cZN" kind="relationship" relationship="viewControllers" id="lbU-wB-GZB"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVT-OZ-Vvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1161" y="38"/>
         </scene>

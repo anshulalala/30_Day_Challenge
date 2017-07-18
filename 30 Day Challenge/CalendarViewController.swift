@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 
-class CalendarViewController: UITabBarController {
+class CalendarViewController: UIViewController {
+    let formatter = DateFormatter()
     
     var challenge: String? = nil
     
@@ -29,27 +30,31 @@ extension CalendarViewController: JTAppleCalendarViewDataSource,
     JTAppleCalendarViewDelegate {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy MM dd"
+        
+        formatter.dateFormat = "MM dd yyyy"
+        
         formatter.timeZone = Calendar.current.timeZone
+        
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2017 07 01")! // You can use date generated from a formatter ALSO REMOVE THE FORCE UNWRAP
-        let endDate = Date()                                // You can also use dates created from this function
+        let startDate = formatter.date(from: "07 01 2017")! // You can use date generated from a formatter ALSO REMOVE THE FORCE UNWRAP
+        let endDate = formatter.date(from: "07 31 2017")! //Date()                                
+        // You can also use dates created from this function
+        
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
-                                                 numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
-            calendar: Calendar.current,
-            generateInDates: .forAllMonths,
-            generateOutDates: .tillEndOfGrid,
-            firstDayOfWeek: .sunday)
+                                                 numberOfRows: 6)
+                                                 //calendar: Calendar.current,
+                                                 //generateInDates: .forAllMonths,
+                                                 //generateOutDates: .tillEndOfGrid,
+                                                 //firstDayOfWeek: .sunday)
         return parameters
     }
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CellView", for: indexPath) as! CellView
-        cell.dayLabel.text = cellState.text
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
+        cell.dateLabel.text = cellState.text
         return cell
     }
     
