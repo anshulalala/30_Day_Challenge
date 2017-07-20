@@ -32,27 +32,33 @@ class ViewController: UIViewController {
     @IBAction func pressMed(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Meditation Pressed")
+        /*
         let defaults: UserDefaults = UserDefaults.standard
         defaults.setValue("Meditation", forKey: "challenge")
+        */
+        globalChallenge = Challenge(challengeType: .Med)
     }
     
     @IBAction func pressRest(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Rest Pressed")
         let defaults: UserDefaults = UserDefaults.standard
-        defaults.setValue("Rest", forKey: "challenge")    }
+        defaults.setValue("Rest", forKey: "challenge")
+    }
    
     @IBAction func pressVeg(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Veg Pressed")
         let defaults: UserDefaults = UserDefaults.standard
-        defaults.setValue("Veg", forKey: "challenge")    }
+        defaults.setValue("Veg", forKey: "challenge")
+    }
     
     @IBAction func pressExer(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Exercise Pressed")
         let defaults: UserDefaults = UserDefaults.standard
-        defaults.setValue("Exercise", forKey: "challenge")    }
+        defaults.setValue("Exercise", forKey: "challenge")
+    }
     
     
     

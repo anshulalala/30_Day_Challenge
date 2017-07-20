@@ -16,6 +16,9 @@
 		8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEA1F1687CF0081D93E /* Assets.xcassets */; };
 		8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */; };
 		8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */; };
+		8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861011F1FC5130089D5DB /* JournalViewController.swift */; };
+		8A9861041F201C730089D5DB /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861031F201C730089D5DB /* Challenge.swift */; };
+		8A9861061F201C810089D5DB /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861051F201C810089D5DB /* Journal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		8A745BED1F1687CF0081D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A745BEF1F1687CF0081D93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		8A9861011F1FC5130089D5DB /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		8A9861031F201C730089D5DB /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		8A9861051F201C810089D5DB /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +74,7 @@
 			children = (
 				8A745BE21F1687CF0081D93E /* ViewController.swift */,
 				8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */,
+				8A9861011F1FC5130089D5DB /* JournalViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -102,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8A745BE01F1687CF0081D93E /* AppDelegate.swift */,
+				8A9861071F201C9C0089D5DB /* Models */,
 				8A2CA4361F169C0A0070C0E0 /* View Controller */,
 				8A2CA4351F169C010070C0E0 /* Storyboards */,
 				8A745BEA1F1687CF0081D93E /* Assets.xcassets */,
@@ -110,6 +118,16 @@
 				8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */,
 			);
 			path = "30 Day Challenge";
+			sourceTree = "<group>";
+		};
+		8A9861071F201C9C0089D5DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A9861031F201C730089D5DB /* Challenge.swift */,
+				8A9861051F201C810089D5DB /* Journal.swift */,
+			);
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D9239778193807CD6365037C /* Pods */ = {
@@ -244,10 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9861041F201C730089D5DB /* Challenge.swift in Sources */,
 				8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */,
 				8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */,
+				8A9861061F201C810089D5DB /* Journal.swift in Sources */,
 				8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */,
 				8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */,
+				8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */,
 				8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -126,6 +126,15 @@
                                     <outlet property="ibCalendarDelegate" destination="MRe-Zh-YgE" id="2dx-t0-Oj5"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USb-MU-dpy">
+                                <rect key="frame" x="172" y="580" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.79963418767769368" green="0.67091886116512423" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="tSQ-YO-g9P" kind="show" id="E7g-1l-xgN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -142,6 +151,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjo-bj-iDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3032.8000000000002" y="35.532233883058474"/>
+        </scene>
+        <!--Journal View Controller-->
+        <scene sceneID="EfM-m5-A3v">
+            <objects>
+                <viewController storyboardIdentifier="JournalVC" id="tSQ-YO-g9P" customClass="JournalViewController" customModule="_0_Day_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h1q-fd-8z0"/>
+                        <viewControllerLayoutGuide type="bottom" id="8T7-vD-qcL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8hT-4O-cX3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How difficult was it to sit still for 10 minutes?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRv-25-PGX">
+                                <rect key="frame" x="20" y="80" width="339" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Have you noticed an improvement on your outlook?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWE-Vh-RMc">
+                                <rect key="frame" x="16" y="204" width="339" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Did you face any roadblocks while trying to complete the challenge today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nd6-KX-GT8">
+                                <rect key="frame" x="16" y="343" width="339" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Did you complete the challenge for today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc7-vf-c4I">
+                                <rect key="frame" x="16" y="502" width="323" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWm-1G-Ege">
+                                <rect key="frame" x="97" y="20" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cD8-7u-Psk">
+                                <rect key="frame" x="125" y="561" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n4S-jn-2ec">
+                                <rect key="frame" x="37" y="253" width="302" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fyX-mg-nFS">
+                                <rect key="frame" x="37" y="410" width="302" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-Ql-MHv">
+                                <rect key="frame" x="37" y="121" width="302" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="yQR-mM-so2"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="trailing" secondItem="fyX-mg-nFS" secondAttribute="trailing" id="4A8-aZ-z4b"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="top" secondItem="WRv-25-PGX" secondAttribute="bottom" constant="1" id="7Jy-ib-tu8"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="trailing" secondItem="n4S-jn-2ec" secondAttribute="trailing" id="CnW-uT-cvB"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="leading" secondItem="n4S-jn-2ec" secondAttribute="leading" id="QYK-UA-r6T"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="centerX" secondItem="8hT-4O-cX3" secondAttribute="centerX" id="daK-dT-5cd"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="leading" secondItem="8hT-4O-cX3" secondAttribute="leadingMargin" constant="21" id="lVg-dN-aOp"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="trailing" secondItem="Fc7-vf-c4I" secondAttribute="trailing" id="s4Y-EP-RcS"/>
+                            <constraint firstItem="bWE-Vh-RMc" firstAttribute="top" secondItem="IFf-Ql-MHv" secondAttribute="bottom" constant="17" id="sIy-eo-u3V"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="top" secondItem="8hT-4O-cX3" secondAttribute="top" constant="121" id="v1X-3u-qAw"/>
+                            <constraint firstItem="IFf-Ql-MHv" firstAttribute="leading" secondItem="fyX-mg-nFS" secondAttribute="leading" id="wWR-xf-Axh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="completeLabel" destination="Fc7-vf-c4I" id="e8a-xb-qX4"/>
+                        <outlet property="journalLabel" destination="mWm-1G-Ege" id="4ch-A2-fQ5"/>
+                        <outlet property="qOneLabel" destination="WRv-25-PGX" id="q6m-Xw-lyr"/>
+                        <outlet property="qThreeLabel" destination="nd6-KX-GT8" id="1ot-2y-JgZ"/>
+                        <outlet property="qTwoLabel" destination="bWE-Vh-RMc" id="mwR-Ig-tMs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWW-q2-boL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3033" y="800"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wHv-Kz-AYe">
