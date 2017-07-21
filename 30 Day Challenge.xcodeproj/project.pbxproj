@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A1EA747AE6EF3E6DE52FF5D /* Pods_30_Day_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */; };
 		8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */; };
+		8A3916F31F22822E000F266F /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3916F21F22822E000F266F /* CoreDataHelper.swift */; };
 		8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE01F1687CF0081D93E /* AppDelegate.swift */; };
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
 		8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BE41F1687CF0081D93E /* Main.storyboard */; };
@@ -18,13 +19,13 @@
 		8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */; };
 		8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861011F1FC5130089D5DB /* JournalViewController.swift */; };
 		8A9861041F201C730089D5DB /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861031F201C730089D5DB /* Challenge.swift */; };
-		8A9861061F201C810089D5DB /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861051F201C810089D5DB /* Journal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_30_Day_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		8A3916F21F22822E000F266F /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		8A745BDD1F1687CF0081D93E /* 30 Day Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 Day Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A745BE01F1687CF0081D93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		8A9861011F1FC5130089D5DB /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		8A9861031F201C730089D5DB /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
-		8A9861051F201C810089D5DB /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				8A745BEF1F1687CF0081D93E /* Info.plist */,
+				8A3916F21F22822E000F266F /* CoreDataHelper.swift */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -124,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				8A9861031F201C730089D5DB /* Challenge.swift */,
-				8A9861051F201C810089D5DB /* Journal.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -265,10 +265,10 @@
 				8A9861041F201C730089D5DB /* Challenge.swift in Sources */,
 				8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */,
 				8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */,
-				8A9861061F201C810089D5DB /* Journal.swift in Sources */,
 				8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */,
 				8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */,
 				8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */,
+				8A3916F31F22822E000F266F /* CoreDataHelper.swift in Sources */,
 				8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

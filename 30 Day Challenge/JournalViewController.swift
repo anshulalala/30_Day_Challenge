@@ -8,30 +8,41 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class JournalViewController: ViewController {
+   
     @IBOutlet weak var journalLabel: UILabel!
+    
     @IBOutlet weak var qOneLabel: UILabel!
+    
     @IBOutlet weak var qTwoLabel: UILabel!
+    
     @IBOutlet weak var qThreeLabel: UILabel!
+    
     @IBOutlet weak var completeLabel: UILabel!
     
    
+    //set overarching questions as dictionaries because I'll add more questions later for other challenges
     let questionOne: [Challenge.ChallengeType:String] = [.Med: "How difficult was it to focus for 10 minutes?", .Rest: "question"]
     let questionTwo = [Challenge.ChallengeType.Med: "Have you noticed a difference in your attitude?"]
     let questionThree = [Challenge.ChallengeType.Med: "Did you face any roadblocks while trying to complete the challenge today?"]
     let questionComplete = [Challenge.ChallengeType.Med: "Did you complete the challenge today?"]
     
-    
     //this here below is an instance of the challengetype
     var challengeType = Challenge.ChallengeType.Med
+  
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         
         
         qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
+        qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
+        qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
+        completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
         
         
     }

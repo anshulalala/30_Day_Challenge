@@ -27,24 +27,33 @@ class Challenge {
     init(challengeType: ChallengeType?) {
         if let challengeType = challengeType {
             self.challengeType = challengeType
-            // store in UD
+            // store in UD upon first use of app
             let defaults: UserDefaults = UserDefaults.standard
             defaults.setValue(challengeType.rawValue, forKey: userDefaultKey)
             
         } else {
-            if let challenge = UserDefaults.standard.value(forKey: userDefaultKey) as? String {
-                if let type = ChallengeType(rawValue: challenge) {
-                    self.challengeType = type
-                } else {
+            if let challenge = UserDefaults.standard.value(forKey: userDefaultKey) as? String, let type = ChallengeType(rawValue: challenge) {
+                
+                self.challengeType = type
+            } else {
                     // set default challenge type
+                let defaults: UserDefaults = UserDefaults.standard
+                defaults.setValue("Meditation", forKey: userDefaultKey)
+                self.challengeType = .Med
+                
+
+                   // defaults.setValue("Rest", forKey: userDefaultKey)
+                   // defaults.setValue("Exercise", forKey: userDefaultKey)
+                   // defaults.setValue("Vegetarian", forKey: userDefaultKey)
+                    
                     // store default ChallengeType.rawValue in user defaults
-                }
             }
-            
         }
+        
     }
-    
+}
+
     
     
 
-}
+

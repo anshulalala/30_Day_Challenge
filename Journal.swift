@@ -7,25 +7,28 @@
 //
 
 import Foundation
-
-class Journal {
-    
-    //do i need an init
+import CoreData
+/*
+class Journal { //NSManagedObject? {
     
     //MARK: Properties
     
    
     var answerOne: String
-    var answerTwo = ""
-    var answerThree = ""
+    var answerTwo: String
+    var answerThree: String
     var completedQ = false
     var date = Date()
-    //date implementation
     
-    init(answerOne: String, date: Date = Date(), completedQ: Bool = false) {
+    //MARK: Initializer
+    init(answerOne: String, answerTwo: String, answerThree: String, completedQ: Bool, date: Date = Date()) {
         self.answerOne = answerOne
+        self.answerTwo = answerTwo
+        self.answerThree = answerThree
+        self.completedQ = completedQ
     }
     
     
     
 }
+*/

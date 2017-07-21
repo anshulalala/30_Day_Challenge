@@ -42,22 +42,29 @@ class ViewController: UIViewController {
     @IBAction func pressRest(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Rest Pressed")
+        /*
         let defaults: UserDefaults = UserDefaults.standard
         defaults.setValue("Rest", forKey: "challenge")
+        */
+        globalChallenge = Challenge(challengeType: .Rest)
     }
    
     @IBAction func pressVeg(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Veg Pressed")
-        let defaults: UserDefaults = UserDefaults.standard
+        /*let defaults: UserDefaults = UserDefaults.standard
         defaults.setValue("Veg", forKey: "challenge")
+        */
+        globalChallenge = Challenge(challengeType: .Veg)
     }
     
     @IBAction func pressExer(_ sender: Any) {
         performSegue(withIdentifier: "homeView", sender: self)
         //print("Exercise Pressed")
-        let defaults: UserDefaults = UserDefaults.standard
+        /*let defaults: UserDefaults = UserDefaults.standard
         defaults.setValue("Exercise", forKey: "challenge")
+        */
+        globalChallenge = Challenge(challengeType: .Exer)
     }
     
     
