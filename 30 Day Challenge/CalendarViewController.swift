@@ -15,12 +15,31 @@ class CalendarViewController: UIViewController {
     
     var challenge: String? = nil
     
+    var todaysJournal: Journal?
+    
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    
+    var receivedJournal: Journal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if let journal = CoreDataHelper.retrieveCurrentJournal(date: Date()) {
+            self.todaysJournal = journal
+            //            if date != Date() { answerOne.isUserInteractionEnabled = false }
+            
+        }
     }
     
     
@@ -57,6 +76,19 @@ extension CalendarViewController: JTAppleCalendarViewDataSource,
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         cell.dateLabel.text = cellState.text
         return cell
+    }
+    
+    @IBAction func unwindToCalendarVC(_ segue: UIStoryboardSegue) {
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAdd" {
+            let destinationVC = segue.destination as! JournalViewController
+            destinationVC.journal = todaysJournal
+        }
+        
+
     }
     
 }

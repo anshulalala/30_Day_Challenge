@@ -19,24 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        if let challenge = UserDefaults.standard.value(forKey: "challenge") as? String {
-            globalChallenge = Challenge(challengeType: Challenge.ChallengeType(rawValue: challenge))
-            
-            let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-            //This code digs deeper into the navigation and tab bar VC in order to go access Calendar 
-            if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as? UITabBarController {
-                if let initialVC = tabBarVC.navigationController?.topViewController as? CalendarViewController {
-    
-                    initialVC.challenge = challenge
-                    self.window?.rootViewController = initialVC
-                    self.window?.makeKeyAndVisible()
-                    //go to calendar
-                }
-                
-                
-            }
-        }
+//        
+//        if let challenge = UserDefaults.standard.value(forKey: "challenge") as? String {
+//            globalChallenge = Challenge(challengeType: Challenge.ChallengeType(rawValue: challenge))
+//            
+//            let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+//            //This code digs deeper into the navigation and tab bar VC in order to go access Calendar 
+//            if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as? UITabBarController {
+//                if let initialVC = tabBarVC.navigationController?.topViewController as? CalendarViewController {
+//    
+//                    initialVC.challenge = challenge
+//                    self.window?.rootViewController = initialVC
+//                    self.window?.makeKeyAndVisible()
+//                    //go to calendar
+//                }
+//                
+//                
+//            }
+//        }
         
         return true
     }

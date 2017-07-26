@@ -17,6 +17,11 @@ class ViewController: UIViewController {
 //
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let journals = CoreDataHelper.retrieveJournals()
+//        for j in journals {
+//            CoreDataHelper.delete(journal: j)
+//        }
         // Do any additional setup after loading the view, typically from a nib.
 //        if UserDefaults.standard.value(forKey: "hasExisted") == nil {
 //            UserDefaults.standard.set(false, forKey: "hasUserExisted")
