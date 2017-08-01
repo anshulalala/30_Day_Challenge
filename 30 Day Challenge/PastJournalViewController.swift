@@ -1,17 +1,15 @@
 //
-//  JournalViewController.swift
+//  PastJournalViewController.swift
 //  30 Day Challenge
 //
-//  Created by Anshula Singh on 7/19/17.
+//  Created by Anshula Singh on 7/31/17.
 //  Copyright © 2017 Anshula Singh. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import CoreData
 
-class JournalViewController: UIViewController {
-   
+class PastJournalViewController: UIViewController {
+    
     @IBOutlet weak var complete: UISegmentedControl!
     
     @IBOutlet weak var answerOne: UITextView!
@@ -19,7 +17,7 @@ class JournalViewController: UIViewController {
     @IBOutlet weak var answerTwo: UITextView!
     
     @IBOutlet weak var answerThree: UITextView!
-   
+    
     @IBOutlet weak var journalLabel: UILabel!
     
     @IBOutlet weak var qOneLabel: UILabel!
@@ -33,17 +31,6 @@ class JournalViewController: UIViewController {
     var journal: Journal?
     
     
-   
-    //set overarching questions as dictionaries because I'll add more questions later for other challenges
-    let questionOne: [Challenge.ChallengeType:String] = [.Med: "How difficult was it to focus for 10 minutes?", .Rest: "question"]
-    let questionTwo = [Challenge.ChallengeType.Med: "Have you noticed a difference in your attitude?"]
-    let questionThree = [Challenge.ChallengeType.Med: "Did you face any roadblocks while trying to complete the challenge today?"]
-    let questionComplete = [Challenge.ChallengeType.Med: "Did you complete the challenge today?"]
-    
-    //this here below is an instance of the challengetype
-    var challengeType = Challenge.ChallengeType.Med
-  
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -55,13 +42,8 @@ class JournalViewController: UIViewController {
         }
         
         
-        
-        
         //code to display the question for the label
-        print(questionOne)
-        print(globalChallenge.challengeType)
-        print(questionOne[globalChallenge.challengeType])
-        qOneLabel.text = "kitty!"
+        qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
         qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
         qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
         completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
@@ -69,7 +51,27 @@ class JournalViewController: UIViewController {
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    
+    //set overarching questions as dictionaries because I'll add more questions later for other challenges
+    let questionOne: [Challenge.ChallengeType:String] = [.Med: "How difficult was it to focus for 10 minutes?", .Rest: "question"]
+    let questionTwo = [Challenge.ChallengeType.Med: "Have you noticed a difference in your attitude?"]
+    let questionThree = [Challenge.ChallengeType.Med: "Did you face any roadblocks while trying to complete the challenge today?"]
+    let questionComplete = [Challenge.ChallengeType.Med: "Did you complete the challenge today?"]
+    
+    //this here below is an instance of the challengetype
+    var challengeType = Challenge.ChallengeType.Med
+    
+    
+    
+    //prepare segue check if the journal exists, and then check if the journal is nil
+    // then save a new journal -> instantiate a new journal into core data
+    // if it does exist, edit what is already in coredata by cross checking the date
+    //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveAndGoBack" {
             
@@ -96,15 +98,24 @@ class JournalViewController: UIViewController {
             
             
         }
+        
+        if let identifier = segue.identifier {
+            if identifier == "cancel" {
+                print("Cancel button tapped")
+            }
+    
+        }
     }
     
-    @IBAction func unwindToCalendarViewController(_ segue: UIStoryboardSegue) {
+
+    
+    
+    @IBAction func unwindToHistoryTableViewController(_ segue: UIStoryboardSegue) {
         
     }
     
-    //prepare segue check if the journal exists, and then check if the journal is nil 
-    // then save a new journal -> instantiate a new journal into core data 
-    // if it does exist, edit what is already in coredata by cross checking the date 
-    //
     
+    
+
+
 }
