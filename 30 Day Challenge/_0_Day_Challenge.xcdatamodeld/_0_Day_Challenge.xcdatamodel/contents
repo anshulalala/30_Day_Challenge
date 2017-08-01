@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Journal" representedClassName=".Journal" syncable="YES" codeGenerationType="class">
+    <entity name="Journal" representedClassName=".Journal" syncable="YES">
         <attribute name="answerOne" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="answerThree" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="answerTwo" optional="YES" attributeType="String" syncable="YES"/>

@@ -9,9 +9,19 @@
 import UIKit
 
 class HistoryTableViewController: UITableViewController {
+    
+    var allJournals = [Journal]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var receivedJournal: Journal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allJournals = CoreDataHelper.retrieveJournals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,16 +44,18 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return allJournals.count 
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "journalEntry", for: indexPath) as! JournalEntryCell
 
+        let journal = allJournals[indexPath.row]
+        
         // Configure the cell...
-        cell.dateLabel.text = "random date"
-        cell.previewLabel.text = "preview"
+        cell.dateLabel.text = journal.dateConvert()
+        cell.previewLabel.text = journal.answerOne ?? ""
 
         return cell
     }
@@ -94,8 +106,20 @@ class HistoryTableViewController: UITableViewController {
             if identifier == "toPastJournal" {
                 // 3
                 print("Transitioning to the Past Journal Entry")
+                
+                let indexPath = tableView.indexPathForSelectedRow! //force unwrap safe? 
+                print("\(#function): \(allJournals.count)")
+                let alljournals = allJournals[indexPath.row]
+                
+                let pastJournalViewController = segue.destination as! PastJournalViewController
+                
+                pastJournalViewController.journal = alljournals
             }
         }
+    }
+    
+    @IBAction func unwindToHistoryTableViewController(_ segue: UIStoryboardSegue) {
+        //
     }
  
 

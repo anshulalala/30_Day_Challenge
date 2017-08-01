@@ -10,6 +10,8 @@
 		0A1EA747AE6EF3E6DE52FF5D /* Pods_30_Day_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */; };
 		8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */; };
 		8A3916F31F22822E000F266F /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3916F21F22822E000F266F /* CoreDataHelper.swift */; };
+		8A5569191F3120B0004903DC /* Journal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */; };
+		8A55691A1F3120B0004903DC /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */; };
 		8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE01F1687CF0081D93E /* AppDelegate.swift */; };
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
 		8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BE41F1687CF0081D93E /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8A3916F21F22822E000F266F /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A745BDD1F1687CF0081D93E /* 30 Day Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 Day Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A745BE01F1687CF0081D93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				8A745BE21F1687CF0081D93E /* ViewController.swift */,
-				8A7D08FA1F2FCD6700EFD89C /* PastJournalViewController.swift */,
 				8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */,
 				8A9861011F1FC5130089D5DB /* JournalViewController.swift */,
 				8AE679311F2BE08100503826 /* HistoryTableViewController.swift */,
+				8A7D08FA1F2FCD6700EFD89C /* PastJournalViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -90,11 +94,22 @@
 		8A2CA4371F169D670070C0E0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A7D08F81F2FC75800EFD89C /* JournalEntryCell.swift */,
 				8A745BEF1F1687CF0081D93E /* Info.plist */,
-				8A3916F21F22822E000F266F /* CoreDataHelper.swift */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		8A5569161F312063004903DC /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */,
+				8A7D08F81F2FC75800EFD89C /* JournalEntryCell.swift */,
+				8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */,
+				8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */,
+				8A745BE71F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld */,
+				8A3916F21F22822E000F266F /* CoreDataHelper.swift */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		8A745BD41F1687CF0081D93E = {
@@ -119,13 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				8A745BE01F1687CF0081D93E /* AppDelegate.swift */,
+				8A5569161F312063004903DC /* Core Data */,
 				8A9861071F201C9C0089D5DB /* Models */,
 				8A2CA4361F169C0A0070C0E0 /* View Controller */,
 				8A2CA4351F169C010070C0E0 /* Storyboards */,
 				8A745BEA1F1687CF0081D93E /* Assets.xcassets */,
 				8A2CA4371F169D670070C0E0 /* Support Files */,
-				8A745BE71F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld */,
-				8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */,
 			);
 			path = "30 Day Challenge";
 			sourceTree = "<group>";
@@ -277,9 +291,11 @@
 				8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */,
 				8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */,
 				8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */,
+				8A55691A1F3120B0004903DC /* Journal+CoreDataProperties.swift in Sources */,
 				8AE679321F2BE08100503826 /* HistoryTableViewController.swift in Sources */,
 				8A7D08F91F2FC75800EFD89C /* JournalEntryCell.swift in Sources */,
 				8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */,
+				8A5569191F3120B0004903DC /* Journal+CoreDataClass.swift in Sources */,
 				8A3916F31F22822E000F266F /* CoreDataHelper.swift in Sources */,
 				8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */,
 			);

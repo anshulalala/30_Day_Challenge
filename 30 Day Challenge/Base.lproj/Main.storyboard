@@ -472,21 +472,25 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYj-kM-tB8" userLabel="Date">
-                                            <rect key="frame" x="8" y="0.0" width="36" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYj-kM-tB8" userLabel="Date">
+                                            <rect key="frame" x="8" y="8" width="36" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfV-nK-LvH" userLabel="Preview">
-                                            <rect key="frame" x="166" y="0.0" width="61" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfV-nK-LvH" userLabel="Preview">
+                                            <rect key="frame" x="157" y="8" width="61" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BYj-kM-tB8" firstAttribute="leading" secondItem="k9A-gA-m4h" secondAttribute="leadingMargin" id="9RJ-T3-628"/>
+                                        <constraint firstItem="BYj-kM-tB8" firstAttribute="top" secondItem="k9A-gA-m4h" secondAttribute="topMargin" id="hlQ-3k-xuW"/>
+                                        <constraint firstItem="gfV-nK-LvH" firstAttribute="top" secondItem="k9A-gA-m4h" secondAttribute="topMargin" id="oJf-pm-kKG"/>
+                                        <constraint firstItem="gfV-nK-LvH" firstAttribute="centerX" secondItem="k9A-gA-m4h" secondAttribute="centerX" id="vPJ-12-hfA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="BYj-kM-tB8" id="an3-bW-x9t"/>
@@ -639,14 +643,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Journal" id="Kno-Nt-122" userLabel="My Journal">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Dpj-DT-TR6">
-                            <connections>
-                                <segue destination="TPZ-mk-X9z" kind="unwind" unwindAction="unwindToHistoryTableViewController:" id="Val-4o-08b"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="rF1-SP-s7A">
                             <connections>
-                                <segue destination="TPZ-mk-X9z" kind="unwind" identifier="saveAndGoBack" unwindAction="unwindToCalendarVC:" id="pn6-y6-bsj"/>
+                                <segue destination="TPZ-mk-X9z" kind="unwind" identifier="saveAndGoBack" unwindAction="unwindToHistoryTableViewController:" id="ogv-Sa-9TW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -58,10 +58,8 @@ class JournalViewController: UIViewController {
         
         
         //code to display the question for the label
-        print(questionOne)
-        print(globalChallenge.challengeType)
-        print(questionOne[globalChallenge.challengeType])
-        qOneLabel.text = "kitty!"
+       
+        qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
         qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
         qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
         completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
@@ -75,7 +73,7 @@ class JournalViewController: UIViewController {
             
             if journal == nil {
                 //if there is no journal for today, create one
-                let newJournal = CoreDataHelper.newJournal()
+                let newJournal = CoreDataHelper.newJournal() //here an instance being created
                 newJournal.date = Date() as NSDate
                 newJournal.answerOne = answerOne.text
                 newJournal.answerTwo = answerTwo.text
@@ -83,6 +81,9 @@ class JournalViewController: UIViewController {
                 CoreDataHelper.saveJournal()
                 let destinationVC = segue.destination as! CalendarViewController
                 destinationVC.receivedJournal = newJournal
+                
+                //destinationVC.allJournals.append(newJournal)
+            
             } else {
                 //if there is a journal for today already created, change it
                 journal!.answerOne = answerOne.text

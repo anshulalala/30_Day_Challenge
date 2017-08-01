@@ -10,13 +10,13 @@ import UIKit
 
 class PastJournalViewController: UIViewController {
     
-    @IBOutlet weak var complete: UISegmentedControl!
+    @IBOutlet weak var complete: UISegmentedControl! //segment label
     
-    @IBOutlet weak var answerOne: UITextView!
+    @IBOutlet weak var answerOne: UITextView! //answer label
     
-    @IBOutlet weak var answerTwo: UITextView!
+    @IBOutlet weak var answerTwo: UITextView!  //answer label
     
-    @IBOutlet weak var answerThree: UITextView!
+    @IBOutlet weak var answerThree: UITextView!  //answer label
     
     @IBOutlet weak var journalLabel: UILabel!
     
@@ -28,7 +28,7 @@ class PastJournalViewController: UIViewController {
     
     @IBOutlet weak var completeLabel: UILabel!
     
-    var journal: Journal?
+    var journal: Journal? //property that holds a journal
     
     
     override func viewDidLoad() {
@@ -51,6 +51,19 @@ class PastJournalViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        //unsure if i need this
+        if let journal = journal {
+            answerOne.text = journal.answerOne
+            answerTwo.text = journal.answerTwo
+            answerThree.text = journal.answerThree
+            
+            
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,8 +96,12 @@ class PastJournalViewController: UIViewController {
                 newJournal.answerTwo = answerTwo.text
                 newJournal.answerThree = answerThree.text
                 CoreDataHelper.saveJournal()
-                let destinationVC = segue.destination as! CalendarViewController
+               
+                let destinationVC = segue.destination as! HistoryTableViewController
                 destinationVC.receivedJournal = newJournal
+                
+                destinationVC.allJournals.append(newJournal)
+                
             } else {
                 //if there is a journal for today already created, change it
                 journal!.answerOne = answerOne.text
@@ -92,11 +109,11 @@ class PastJournalViewController: UIViewController {
                 journal!.answerThree = answerThree.text
                 journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
                 
-                let destinationVC = segue.destination as! CalendarViewController
+                let destinationVC = segue.destination as! HistoryTableViewController
                 destinationVC.receivedJournal = journal!
+                
+                destinationVC.tableView.reloadData()
             }
-            
-            
         }
         
         if let identifier = segue.identifier {
@@ -108,11 +125,6 @@ class PastJournalViewController: UIViewController {
     }
     
 
-    
-    
-    @IBAction func unwindToHistoryTableViewController(_ segue: UIStoryboardSegue) {
-        
-    }
     
     
     
