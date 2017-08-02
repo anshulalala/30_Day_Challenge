@@ -94,6 +94,7 @@
 		8A2CA4371F169D670070C0E0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */,
 				8A745BEF1F1687CF0081D93E /* Info.plist */,
 			);
 			name = "Support Files";
@@ -102,7 +103,6 @@
 		8A5569161F312063004903DC /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */,
 				8A7D08F81F2FC75800EFD89C /* JournalEntryCell.swift */,
 				8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */,
 				8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */,

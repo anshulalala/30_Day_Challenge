@@ -11,36 +11,58 @@ import CoreData
 
 var globalChallenge: Challenge!
 
+let firstDayKey = "firstDay"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //user default save the first date they open up the app 
+    //let firstDayKey = "firstDay"
 
+    
+    //user default save the first date they open up the app
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        
-        if let challenge = UserDefaults.standard.value(forKey: "challenge") as? String {
-           globalChallenge = Challenge(challengeType: Challenge.ChallengeType(rawValue: challenge))
-            
-            
-            let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
-            //This code digs deeper into the navigation and tab bar VC in order to go access Calendar
-            if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as? UITabBarController {
-                if let initialVC = tabBarVC.navigationController?.topViewController as? CalendarViewController {
-    
-                    initialVC.challenge = challenge
-                    self.window?.rootViewController = initialVC
+        
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+        
+        guard let challenge = UserDefaults.standard.value(forKey: "challenge") as? String,
+                let startDate = UserDefaults.standard.object(forKey: "firstDay") as? Date else {
+                    let challengeVC = storyboard.instantiateInitialViewController()
+                    self.window?.rootViewController = challengeVC
                     self.window?.makeKeyAndVisible()
-                    //go to calendar
+                    return true
+
+
+        }
+        
+        globalChallenge = Challenge(challengeType: Challenge.ChallengeType(rawValue: challenge))
+        
+        
+
+        //This code digs deeper into the navigation and tab bar VC in order to go access Calendar
+        
+        if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as? UITabBarController {
+            //create navigationVC and then access its topVC to assign chosen challenge
+            if let navVC = tabBarVC.viewControllers?[0] as? UINavigationController {
+                if let calendarVC = navVC.topViewController as? CalendarViewController {
+                    calendarVC.challenge = challenge
+                    
+                    //set root as tabBarVC, since it will show its first VC
+                    self.window?.rootViewController = tabBarVC
+                    self.window?.makeKeyAndVisible()
                 }
-                
-                
             }
+            
+            
         }
     
         return true
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

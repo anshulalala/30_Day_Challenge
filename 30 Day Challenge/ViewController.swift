@@ -18,6 +18,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //if today > Userdef.st.obj("lastDay") as? Date
+        //renew dates:
+        let startDate = Date()
+        UserDefaults.standard.set(startDate, forKey: "firstDay")
+        let endDate = thisDayOfNextMonth(date: startDate)
+        UserDefaults.standard.set(endDate, forKey: "lastDay")
+        //else
+        //keep going with last
+
+        
 //        let journals = CoreDataHelper.retrieveJournals()
 //        for j in journals {
 //            CoreDataHelper.delete(journal: j)
@@ -77,6 +87,26 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func thisDayOfNextMonth(date: Date) -> Date {
+       
+        let startDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        var components = DateComponents()
+        if startDateComponents.month! + 1 > 12 {
+            components.year = startDateComponents.year! + 1
+            components.month = 1
+        } else {
+            components.month = startDateComponents.month! + 1
+        }
+        
+        components.day = startDateComponents.day
+        components.hour = startDateComponents.hour
+        components.minute = startDateComponents.minute
+        components.second = startDateComponents.second
+        
+        let endDate = Calendar.current.date(from: components)
+        return endDate!
     }
 
 
