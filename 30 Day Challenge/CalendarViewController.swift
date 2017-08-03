@@ -20,10 +20,10 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var challengeTitle: UILabel!
     
-    let outsideMonthColor = UIColor(colorWithHexValue: 0x584a66)
+    let outsideMonthColor = UIColor(colorWithHexValue: 0xb1bfca)
     let monthColor = UIColor.white
-    let selectedMonthColor = UIColor(colorWithHexValue: 0x3a294b)
-    let currentDateSelectedColor = UIColor(colorWithHexValue: 0x4e3f5d)
+    let selectedMonthColor = UIColor(colorWithHexValue: 0xffffff) //affects label color when selected
+    let currentDateSelectedColor = UIColor(colorWithHexValue: 0xbabdbe)
     
     
     let formatter = DateFormatter()
@@ -33,6 +33,26 @@ class CalendarViewController: UIViewController {
     var todaysJournal: Journal?
     
     var receivedJournal: Journal?
+    
+    // MARK: allJournals array property: [Journal]?
+    var allJournals = [Journal]()
+    
+    
+    // TODO: ADD viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if let journal = CoreDataHelper.retrieveCurrentJournal(date: Date()) {
+            self.todaysJournal = journal
+            //            if date != Date() { answerOne.isUserInteractionEnabled = false }
+            
+        }
+    }
+
+        
+    
+    // retrievejournals
+    // update what calendar looks like
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,16 +118,6 @@ class CalendarViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(true)
-        
-        if let journal = CoreDataHelper.retrieveCurrentJournal(date: Date()) {
-            self.todaysJournal = journal
-            //            if date != Date() { answerOne.isUserInteractionEnabled = false }
-            
-        }
-    }
     
     
     @IBAction func unwindToCalendarVC(_ segue: UIStoryboardSegue) {
@@ -161,9 +171,17 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
+        // TODO:
+        // use date that gets passed in to access corresponding journal
+            // need to caste date to NSDate type
+            // filter through allJournals to find the journal where journal.date == date
+        // if journal.completed => handle cell selected true
+        
+        
         cell.dateLabel.text = cellState.text
             
         handleCellSelected(view: cell, cellState: cellState)
+        
         handleCellTextColor(view: cell, cellState: cellState)
        
         return cell

@@ -18,10 +18,20 @@ class HistoryTableViewController: UITableViewController {
     
     var receivedJournal: Journal?
 
+    // MARK: viewWillAppear
+    // retrievejournals
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        allJournals = CoreDataHelper.retrieveJournals()
+        tableView.reloadData()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allJournals = CoreDataHelper.retrieveJournals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

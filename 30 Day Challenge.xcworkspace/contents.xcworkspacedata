@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:30 Day Challenge/Main.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:30 Day Challenge/Journal+CoreDataClass.swift">
    </FileRef>
    <FileRef

@@ -18,7 +18,7 @@ class PastJournalViewController: UIViewController {
     
     @IBOutlet weak var answerThree: UITextView!  //answer label
     
-    @IBOutlet weak var journalLabel: UILabel!
+    //@IBOutlet weak var journalLabel: UILabel!
     
     @IBOutlet weak var qOneLabel: UILabel!
     
@@ -43,17 +43,21 @@ class PastJournalViewController: UIViewController {
         
         
         //code to display the question for the label
-        qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
-        qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
-        qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
-        completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print(qOneLabel)
+        print(qTwoLabel)
+        print(qThreeLabel)
+        print(completeLabel)
+        qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
+        qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
+        qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
+        completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
+
         
         //unsure if i need this
         if let journal = journal {
@@ -88,32 +92,34 @@ class PastJournalViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveAndGoBack" {
             
-            if journal == nil {
-                //if there is no journal for today, create one
-                let newJournal = CoreDataHelper.newJournal()
-                newJournal.date = Date() as NSDate
-                newJournal.answerOne = answerOne.text
-                newJournal.answerTwo = answerTwo.text
-                newJournal.answerThree = answerThree.text
-                CoreDataHelper.saveJournal()
-               
-                let destinationVC = segue.destination as! HistoryTableViewController
-                destinationVC.receivedJournal = newJournal
-                
-                destinationVC.allJournals.append(newJournal)
-                
-            } else {
-                //if there is a journal for today already created, change it
-                journal!.answerOne = answerOne.text
-                journal!.answerTwo = answerTwo.text
-                journal!.answerThree = answerThree.text
-                journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
-                
-                let destinationVC = segue.destination as! HistoryTableViewController
-                destinationVC.receivedJournal = journal!
-                
-                destinationVC.tableView.reloadData()
-            }
+//            if journal == nil {
+//                //if there is no journal for today, create one
+//                let newJournal = CoreDataHelper.newJournal()
+//                newJournal.date = Date() as NSDate
+//                newJournal.answerOne = answerOne.text
+//                newJournal.answerTwo = answerTwo.text
+//                newJournal.answerThree = answerThree.text
+//                //new segment control
+//                newJournal.completedQ = complete.selectedSegmentIndex == 0 ? false : true
+////                CoreDataHelper.saveJournal()
+//               
+//                let destinationVC = segue.destination as! HistoryTableViewController
+//                destinationVC.receivedJournal = newJournal
+//                
+//                destinationVC.allJournals.append(newJournal)
+//                
+//            } else {
+//                //if there is a journal for today already created, change it
+//                journal!.answerOne = answerOne.text
+//                journal!.answerTwo = answerTwo.text
+//                journal!.answerThree = answerThree.text
+//                journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
+////                CoreDataHelper.saveJournal()
+//                let destinationVC = segue.destination as! HistoryTableViewController
+//                destinationVC.receivedJournal = journal!
+//                
+//                destinationVC.tableView.reloadData()
+//            }
         }
         
         if let identifier = segue.identifier {
@@ -123,11 +129,4 @@ class PastJournalViewController: UIViewController {
     
         }
     }
-    
-
-    
-    
-    
-
-
 }

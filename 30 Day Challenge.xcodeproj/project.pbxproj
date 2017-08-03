@@ -10,11 +10,11 @@
 		0A1EA747AE6EF3E6DE52FF5D /* Pods_30_Day_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04589FCC996BC7B4622D38EB /* Pods_30_Day_Challenge.framework */; };
 		8A2CA4391F16A6550070C0E0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */; };
 		8A3916F31F22822E000F266F /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3916F21F22822E000F266F /* CoreDataHelper.swift */; };
+		8A3EFB671F33C67F0068CCFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A3EFB661F33C67F0068CCFA /* Main.storyboard */; };
 		8A5569191F3120B0004903DC /* Journal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */; };
 		8A55691A1F3120B0004903DC /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */; };
 		8A745BE11F1687CF0081D93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE01F1687CF0081D93E /* AppDelegate.swift */; };
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
-		8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BE41F1687CF0081D93E /* Main.storyboard */; };
 		8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE71F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld */; };
 		8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEA1F1687CF0081D93E /* Assets.xcassets */; };
 		8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */; };
@@ -31,12 +31,12 @@
 		24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		8A2CA4381F16A6550070C0E0 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8A3916F21F22822E000F266F /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		8A3EFB661F33C67F0068CCFA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A5569171F3120B0004903DC /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8A5569181F3120B0004903DC /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A745BDD1F1687CF0081D93E /* 30 Day Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 Day Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A745BE01F1687CF0081D93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8A745BE51F1687CF0081D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A745BE81F1687CF0081D93E /* _0_Day_Challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _0_Day_Challenge.xcdatamodel; sourceTree = "<group>"; };
 		8A745BEA1F1687CF0081D93E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A745BED1F1687CF0081D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		8A2CA4351F169C010070C0E0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				8A745BE41F1687CF0081D93E /* Main.storyboard */,
+				8A3EFB661F33C67F0068CCFA /* Main.storyboard */,
 				8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -224,9 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3EFB671F33C67F0068CCFA /* Main.storyboard in Resources */,
 				8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */,
 				8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */,
-				8A745BE61F1687CF0081D93E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,14 +304,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8A745BE41F1687CF0081D93E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A745BE51F1687CF0081D93E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

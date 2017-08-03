@@ -20,7 +20,7 @@ class JournalViewController: UIViewController {
     
     @IBOutlet weak var answerThree: UITextView!
    
-    @IBOutlet weak var journalLabel: UILabel!
+    //@IBOutlet weak var journalLabel: UILabel!
     
     @IBOutlet weak var qOneLabel: UILabel!
     
@@ -53,19 +53,50 @@ class JournalViewController: UIViewController {
             answerThree.text = journal.answerThree
             complete.selectedSegmentIndex = journal.completedQ ? 1 : 0
         }
+
         
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //code to display the question for the label
-       
+        print(qOneLabel)
+        print(qTwoLabel)
+        print(qThreeLabel)
+        print(completeLabel)
+        
         qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
         qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
         qThreeLabel.text = questionThree[globalChallenge.challengeType] ?? ""
         completeLabel.text = questionComplete[globalChallenge.challengeType] ?? ""
-        
-        
+
     }
+    
+   
+//    @IBAction func saveToday(_ sender: Any) {
+//        if journal == nil {
+//            //if there is no journal for today, create one
+//            let newJournal = CoreDataHelper.newJournal() //here an instance being created
+//            newJournal.date = Date() as NSDate //creates new date
+//            newJournal.answerOne = answerOne.text //saves q1
+//            newJournal.answerTwo = answerTwo.text //save q2
+//            newJournal.answerThree = answerThree.text //save q3
+//            newJournal.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
+//            CoreDataHelper.saveJournal()
+//        //append into array for the ready stuff
+//        //HistoryTableViewController.all
+//        
+//        } else {
+//            //if there is a journal for today already created, change it
+//            journal!.answerOne = answerOne.text
+//            journal!.answerTwo = answerTwo.text
+//            journal!.answerThree = answerThree.text
+//            journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
+//            CoreDataHelper.saveJournal()
+//        
+//        }
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,14 +105,26 @@ class JournalViewController: UIViewController {
             if journal == nil {
                 //if there is no journal for today, create one
                 let newJournal = CoreDataHelper.newJournal() //here an instance being created
-                newJournal.date = Date() as NSDate
-                newJournal.answerOne = answerOne.text
-                newJournal.answerTwo = answerTwo.text
-                newJournal.answerThree = answerThree.text
-                CoreDataHelper.saveJournal()
+                newJournal.date = Date() as NSDate //creates new date
+                newJournal.answerOne = answerOne.text //saves q1
+                newJournal.answerTwo = answerTwo.text //save q2
+                newJournal.answerThree = answerThree.text //save q3
+                journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
+               CoreDataHelper.saveJournal()
+            
+                
+                //HistoryTableViewController.allJournals.append(newJournal)
+                
+                //let destinationVC = segue.destination as! HistoryTableViewController
+                //destinationVC.receivedJournal = newJournal
+                
+                //destinationVC.allJournals.append(newJournal)
+               
+                
+                //don't need this code because we're not segueing, i just want the code to save
                 let destinationVC = segue.destination as! CalendarViewController
                 destinationVC.receivedJournal = newJournal
-                
+
                 //destinationVC.allJournals.append(newJournal)
             
             } else {
@@ -90,6 +133,13 @@ class JournalViewController: UIViewController {
                 journal!.answerTwo = answerTwo.text
                 journal!.answerThree = answerThree.text
                 journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
+                CoreDataHelper.saveJournal()
+
+                
+                // let destinationVC = segue.destination as! HistoryTableViewController
+                //destinationVC.receivedJournal = journal!
+                
+                //destinationVC.tableView.reloadData()
                 
                 let destinationVC = segue.destination as! CalendarViewController
                 destinationVC.receivedJournal = journal!
@@ -99,9 +149,7 @@ class JournalViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToCalendarViewController(_ segue: UIStoryboardSegue) {
-        
-    }
+    
     
     //prepare segue check if the journal exists, and then check if the journal is nil 
     // then save a new journal -> instantiate a new journal into core data 
