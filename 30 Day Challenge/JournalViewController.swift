@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class JournalViewController: UIViewController {
+class JournalViewController: UIViewController, UITextViewDelegate {
    
     @IBOutlet weak var complete: UISegmentedControl!
     
@@ -31,20 +31,26 @@ class JournalViewController: UIViewController {
     @IBOutlet weak var completeLabel: UILabel!
     
     var journal: Journal?
-    
-    
-   
+    var keyboardIsUp = false
+
     //set overarching questions as dictionaries because I'll add more questions later for other challenges
-    let questionOne: [Challenge.ChallengeType:String] = [.Med: "How difficult was it to focus for 10 minutes?", .Rest: "question"]
-    let questionTwo = [Challenge.ChallengeType.Med: "Have you noticed a difference in your attitude?"]
-    let questionThree = [Challenge.ChallengeType.Med: "Did you face any roadblocks while trying to complete the challenge today?"]
-    let questionComplete = [Challenge.ChallengeType.Med: "Did you complete the challenge today?"]
+    let questionOne: [Challenge.ChallengeType:String] = [.Med: "How difficult was it to focus during your meditation?", .Rest: "Did you have any trouble sleeping?", .Exer: "How long did you exercise today?", .Veg: "What did you eat today?"]
+    let questionTwo: [Challenge.ChallengeType:String] = [.Med: "Have you noticed a difference in your attitude?", .Rest: "Have you noticed a difference in your attitude?", .Exer: "Have you noticed any changes?", .Veg: "How are you dealing with cravings?"]
+    let questionThree: [Challenge.ChallengeType:String] = [.Med: "Was it challenging today?", .Rest: "Was it challenging today?", .Exer: "Was it challenging today?", .Veg: "Was it challenging today?"]
+    let questionComplete: [Challenge.ChallengeType:String] = [.Med: "Did you complete the challenge today?", .Rest: "Did you complete the challenge today?", .Exer: "Did you complete the challenge today?", .Veg: "Did you complete the challenge today?"]
     
     //this here below is an instance of the challengetype
     var challengeType = Challenge.ChallengeType.Med
-  
-    
+    var challengeType2 = Challenge.ChallengeType.Rest
+    var challengeType3 = Challenge.ChallengeType.Exer
+    var challengeType4 = Challenge.ChallengeType.Veg
+
+
     override func viewDidLoad() {
+        
+        answerOne.delegate = self
+        answerTwo.delegate = self
+        answerThree.delegate = self
         
         super.viewDidLoad()
         if let journal = journal {
@@ -53,6 +59,10 @@ class JournalViewController: UIViewController {
             answerThree.text = journal.answerThree
             complete.selectedSegmentIndex = journal.completedQ ? 1 : 0
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(JournalViewController.keyboardWillGoUp(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(JournalViewController.keyboardWillGoDown(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         
     }
@@ -61,10 +71,6 @@ class JournalViewController: UIViewController {
         super.viewWillAppear(animated)
         
         //code to display the question for the label
-        print(qOneLabel)
-        print(qTwoLabel)
-        print(qThreeLabel)
-        print(completeLabel)
         
         qOneLabel.text = questionOne[globalChallenge.challengeType] ?? ""
         qTwoLabel.text = questionTwo[globalChallenge.challengeType] ?? ""
@@ -73,31 +79,49 @@ class JournalViewController: UIViewController {
 
     }
     
-   
-//    @IBAction func saveToday(_ sender: Any) {
-//        if journal == nil {
-//            //if there is no journal for today, create one
-//            let newJournal = CoreDataHelper.newJournal() //here an instance being created
-//            newJournal.date = Date() as NSDate //creates new date
-//            newJournal.answerOne = answerOne.text //saves q1
-//            newJournal.answerTwo = answerTwo.text //save q2
-//            newJournal.answerThree = answerThree.text //save q3
-//            newJournal.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
-//            CoreDataHelper.saveJournal()
-//        //append into array for the ready stuff
-//        //HistoryTableViewController.all
-//        
-//        } else {
-//            //if there is a journal for today already created, change it
-//            journal!.answerOne = answerOne.text
-//            journal!.answerTwo = answerTwo.text
-//            journal!.answerThree = answerThree.text
-//            journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
-//            CoreDataHelper.saveJournal()
-//        
-//        }
-//    }
+    func keyboardWillGoUp(notification: NSNotification){
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print(self.view.frame.maxY)
+            print(self.answerThree.frame.maxY + (answerThree.superview?.frame.origin.y)!)
+            print(answerTwo.frame.maxY)
+            print(answerOne.frame.maxY)
+            print(keyboardSize.height)
+            if self.view.frame.maxY - (self.answerThree.frame.maxY + (answerThree.superview?.frame.origin.y)!
+                + 80) < keyboardSize.height && answerThree.isFirstResponder {
+                self.view.frame.origin.y -= keyboardSize.height
+                keyboardIsUp = true
+            }
+            
+        }
+        
+    }
     
+    func keyboardWillGoDown(notification : NSNotification){
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if keyboardIsUp {
+                self.view.frame.origin.y += keyboardSize.height
+                keyboardIsUp = false
+            }
+            
+        }
+        
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    func textViewShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        answerOne.resignFirstResponder()
+        answerTwo.resignFirstResponder()
+        answerThree.resignFirstResponder()
+        return false
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveAndGoBack" {
@@ -109,7 +133,7 @@ class JournalViewController: UIViewController {
                 newJournal.answerOne = answerOne.text //saves q1
                 newJournal.answerTwo = answerTwo.text //save q2
                 newJournal.answerThree = answerThree.text //save q3
-                journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
+                newJournal.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
                CoreDataHelper.saveJournal()
             
                 
@@ -148,12 +172,29 @@ class JournalViewController: UIViewController {
             
         }
     }
-    
-    
-    
-    //prepare segue check if the journal exists, and then check if the journal is nil 
-    // then save a new journal -> instantiate a new journal into core data 
-    // if it does exist, edit what is already in coredata by cross checking the date 
+    //    @IBAction func saveToday(_ sender: Any) {
+    //        if journal == nil {
+    //            //if there is no journal for today, create one
+    //            let newJournal = CoreDataHelper.newJournal() //here an instance being created
+    //            newJournal.date = Date() as NSDate //creates new date
+    //            newJournal.answerOne = answerOne.text //saves q1
+    //            newJournal.answerTwo = answerTwo.text //save q2
+    //            newJournal.answerThree = answerThree.text //save q3
+    //            newJournal.completedQ = complete.selectedSegmentIndex == 0 ? false : true //save completion
+    //            CoreDataHelper.saveJournal()
+    //        //append into array for the ready stuff
+    //        //HistoryTableViewController.all
     //
+    //        } else {
+    //            //if there is a journal for today already created, change it
+    //            journal!.answerOne = answerOne.text
+    //            journal!.answerTwo = answerTwo.text
+    //            journal!.answerThree = answerThree.text
+    //            journal!.completedQ = complete.selectedSegmentIndex == 0 ? false : true
+    //            CoreDataHelper.saveJournal()
+    //        
+    //        }
+    //    }
+    
     
 }
