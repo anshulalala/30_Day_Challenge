@@ -81,11 +81,11 @@ class JournalViewController: UIViewController, UITextViewDelegate {
     
     func keyboardWillGoUp(notification: NSNotification){
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print(self.view.frame.maxY)
-            print(self.answerThree.frame.maxY + (answerThree.superview?.frame.origin.y)!)
-            print(answerTwo.frame.maxY)
-            print(answerOne.frame.maxY)
-            print(keyboardSize.height)
+           // print(self.view.frame.maxY)
+           // print(self.answerThree.frame.maxY + (answerThree.superview?.frame.origin.y)!)
+           // print(answerTwo.frame.maxY)
+           // print(answerOne.frame.maxY)
+           // print(keyboardSize.height)
             if self.view.frame.maxY - (self.answerThree.frame.maxY + (answerThree.superview?.frame.origin.y)!
                 + 80) < keyboardSize.height && answerThree.isFirstResponder {
                 self.view.frame.origin.y -= keyboardSize.height

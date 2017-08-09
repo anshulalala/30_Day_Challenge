@@ -31,11 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let challenge = UserDefaults.standard.value(forKey: "challenge") as? String,
                 let startDate = UserDefaults.standard.object(forKey: "firstDay") as? Date else {
+                    
+                    let startDate = Date() //renew date to today's date and set it up
+                    UserDefaults.standard.set(startDate, forKey: "firstDay")
+                    let endDate = thisDayOfNextMonth(date: startDate)
+                    UserDefaults.standard.set(endDate, forKey: "lastDay")
+                    
                     let challengeVC = storyboard.instantiateInitialViewController()
                     self.window?.rootViewController = challengeVC
                     self.window?.makeKeyAndVisible()
+                    
+                    
+                    
+                    
                     return true
-
 
         }
         
@@ -80,6 +89,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+            //check to see if the current date is a month after the start date
+        //if not, don't do anything
+        let todayDate = Date()
+        
+        guard let endDate = UserDefaults.standard.object(forKey: "lastDay") as? Date
+            else{
+                let startDate = Date() //renew date to today's date and set it up
+                UserDefaults.standard.set(startDate, forKey: "firstDay")
+                let endDate = thisDayOfNextMonth(date: startDate)
+                UserDefaults.standard.set(endDate, forKey: "lastDay")
+                return
+                
+        }
+            
+
+        if todayDate > endDate {
+            let startDate = Date() //renew date to today's date and set it up
+            UserDefaults.standard.set(startDate, forKey: "firstDay")
+            let endDate = thisDayOfNextMonth(date: startDate)
+            UserDefaults.standard.set(endDate, forKey: "lastDay")
+            
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: .main)
+            let challengeVC = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = challengeVC
+            self.window?.makeKeyAndVisible()
+        
+        
+        
+        }
+            // if it is, have the app open the initial view for the storyboard
+
+            
+    
+    
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -132,6 +177,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func thisDayOfNextMonth(date: Date) -> Date {
+        
+        let startDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        var components = DateComponents()
+        //print(startDateComponents.year)
+        if startDateComponents.month! + 1 > 12 {
+            components.year = startDateComponents.year! + 1
+            components.month = 1
+        } else {
+            components.month = startDateComponents.month! + 1
+            components.year = startDateComponents.year
+
+        }
+        
+        components.day = startDateComponents.day
+        components.hour = startDateComponents.hour
+        components.minute = startDateComponents.minute
+        components.second = startDateComponents.second
+        
+        let endDate = Calendar.current.date(from: components)
+        return endDate!
+    }
+
 
 }
 

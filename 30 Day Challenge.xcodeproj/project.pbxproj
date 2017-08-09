@@ -17,12 +17,12 @@
 		8A745BE31F1687CF0081D93E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE21F1687CF0081D93E /* ViewController.swift */; };
 		8A745BE91F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A745BE71F1687CF0081D93E /* _0_Day_Challenge.xcdatamodeld */; };
 		8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEA1F1687CF0081D93E /* Assets.xcassets */; };
-		8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */; };
 		8A7D08F91F2FC75800EFD89C /* JournalEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7D08F81F2FC75800EFD89C /* JournalEntryCell.swift */; };
 		8A7D08FB1F2FCD6700EFD89C /* PastJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7D08FA1F2FCD6700EFD89C /* PastJournalViewController.swift */; };
 		8A8565EB1F1E6DFE00FB644A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */; };
 		8A9861021F1FC5130089D5DB /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861011F1FC5130089D5DB /* JournalViewController.swift */; };
 		8A9861041F201C730089D5DB /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9861031F201C730089D5DB /* Challenge.swift */; };
+		8AA8C0241F3ADAED002B1EE2 /* Routinely Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8C0231F3ADAED002B1EE2 /* Routinely Launch Screen.storyboard */; };
 		8AE679321F2BE08100503826 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE679311F2BE08100503826 /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,13 +39,13 @@
 		8A745BE21F1687CF0081D93E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A745BE81F1687CF0081D93E /* _0_Day_Challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _0_Day_Challenge.xcdatamodel; sourceTree = "<group>"; };
 		8A745BEA1F1687CF0081D93E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A745BED1F1687CF0081D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A745BEF1F1687CF0081D93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A7D08F81F2FC75800EFD89C /* JournalEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntryCell.swift; sourceTree = "<group>"; };
 		8A7D08FA1F2FCD6700EFD89C /* PastJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastJournalViewController.swift; sourceTree = "<group>"; };
 		8A8565EA1F1E6DFE00FB644A /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		8A9861011F1FC5130089D5DB /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		8A9861031F201C730089D5DB /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		8AA8C0231F3ADAED002B1EE2 /* Routinely Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Routinely Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8AE679311F2BE08100503826 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-30 Day Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-30 Day Challenge/Pods-30 Day Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				8A3EFB661F33C67F0068CCFA /* Main.storyboard */,
-				8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */,
+				8AA8C0231F3ADAED002B1EE2 /* Routinely Launch Screen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -197,6 +197,7 @@
 				TargetAttributes = {
 					8A745BDC1F1687CF0081D93E = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UXAF9LTG2Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -225,8 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3EFB671F33C67F0068CCFA /* Main.storyboard in Resources */,
-				8A745BEE1F1687CF0081D93E /* LaunchScreen.storyboard in Resources */,
 				8A745BEB1F1687CF0081D93E /* Assets.xcassets in Resources */,
+				8AA8C0241F3ADAED002B1EE2 /* Routinely Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,17 +303,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8A745BEC1F1687CF0081D93E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A745BED1F1687CF0081D93E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8A745BF01F1687CF0081D93E /* Debug */ = {
@@ -415,10 +405,15 @@
 			baseConfigurationReference = FBE046FA20B49BD32D45D6FD /* Pods-30 Day Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UXAF9LTG2Y;
 				INFOPLIST_FILE = "30 Day Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-0-Day-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -428,10 +423,14 @@
 			baseConfigurationReference = 24EF6D3AC5E7A830AD9A6886 /* Pods-30 Day Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UXAF9LTG2Y;
 				INFOPLIST_FILE = "30 Day Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-0-Day-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

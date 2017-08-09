@@ -115,10 +115,10 @@ class HistoryTableViewController: UITableViewController {
             // 2
             if identifier == "toPastJournal" {
                 // 3
-                print("Transitioning to the Past Journal Entry")
+               // print("Transitioning to the Past Journal Entry")
                 
                 let indexPath = tableView.indexPathForSelectedRow! //force unwrap safe? 
-                print("\(#function): \(allJournals.count)")
+               // print("\(#function): \(allJournals.count)")
                 let alljournals = allJournals[indexPath.row]
                 
                 let pastJournalViewController = segue.destination as! PastJournalViewController

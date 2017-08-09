@@ -22,7 +22,7 @@ extension Journal {
     @NSManaged public var completedQ: Bool
     @NSManaged public var date: NSDate?
 
-    func dateConvert() -> String {
+    func dateConvert() -> String { //helps convert journal dates 
         if date == nil {
             return ""
         }

@@ -15,16 +15,26 @@ class ViewController: UIViewController {
 //    @IBOutlet weak var veg: UIButton!
 //    @IBOutlet weak var exer: UIButton!
 //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //if today > Userdef.st.obj("lastDay") as? Date
-        //renew dates:
-        let startDate = Date()
-        UserDefaults.standard.set(startDate, forKey: "firstDay")
-        let endDate = thisDayOfNextMonth(date: startDate)
-        UserDefaults.standard.set(endDate, forKey: "lastDay")
-        //else
+        //let todayDate = Date()
+//        let startDate = Date() //renew date to today's date and set it up
+//        UserDefaults.standard.set(startDate, forKey: "firstDay")
+//        let endDate = thisDayOfNextMonth(date: startDate)
+//        UserDefaults.standard.set(endDate, forKey: "lastDay")
+//        
+//        
+//        //if today > Userdef.st.obj("lastDay") as? Date
+//        
+//        
+//        if todayDate > (UserDefaults.standard.object(forKey: "lastDay") as? Date)! {
+//            let startDate = Date() //renew date to today's date and set it up
+//            UserDefaults.standard.set(startDate, forKey: "firstDay")
+//            let endDate = thisDayOfNextMonth(date: startDate)
+//            UserDefaults.standard.set(endDate, forKey: "lastDay")
+//        }
         //keep going with last
 
         
@@ -108,6 +118,12 @@ class ViewController: UIViewController {
         let endDate = Calendar.current.date(from: components)
         return endDate!
     }
+    
+//    func dateComponent(date: Date) -> Date {
+//        let dateComponent = Calendar.current.dateComponents([.year, .month, .day], from: date)
+//        var components = DateComponents()
+//        
+//    }
 
 
 }

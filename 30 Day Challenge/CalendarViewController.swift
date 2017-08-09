@@ -34,8 +34,10 @@ class CalendarViewController: UIViewController {
     
     var receivedJournal: Journal?
     
+    var date: Date?
+    
     // MARK: allJournals array property: [Journal]?
-    var allJournals = [Journal]()
+    var allJournals = [String: Journal]()
     
     
     // TODO: ADD viewWillAppear
@@ -44,19 +46,31 @@ class CalendarViewController: UIViewController {
         
         if let journal = CoreDataHelper.retrieveCurrentJournal(date: Date()) {
             self.todaysJournal = journal
-            //            if date != Date() { answerOne.isUserInteractionEnabled = false }
+        //  if date != Date() { answerOne.isUserInteractionEnabled = false }
             
         }
-    }
-
         
+        // use date that gets passed in to access corresponding journal
+        let allJournalsArray = CoreDataHelper.retrieveJournals()
+        
+        allJournals = allJournalsArray.reduce([String: Journal]()) {
+            // filter through allJournals to find the journal where journal.date == date
+            (total, journal) in
+            var totalMutable = total
+            totalMutable[dateConvert(date: journal.date! as Date)] = journal
+            return totalMutable
+            
+        }
+        
+        calendarView.reloadData()
+        
+    }
     
-    // retrievejournals
-    // update what calendar looks like
+    // retrievejournals  don't know what these comments are for
+    // update what calendar looks like   same
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCalendarView()
         
     }
@@ -72,8 +86,6 @@ class CalendarViewController: UIViewController {
             self.setupViewsOfCalendar(from: visibleDates)
             
         }
-        
-        
         
     }
     
@@ -122,7 +134,8 @@ class CalendarViewController: UIViewController {
     
     @IBAction func unwindToCalendarVC(_ segue: UIStoryboardSegue) {
         
-    }
+    } //the unwind to go back here from today's journal
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAdd" {
@@ -130,9 +143,7 @@ class CalendarViewController: UIViewController {
             destinationVC.journal = todaysJournal
         }
         
-        
     }
-    
     
 }
 
@@ -147,8 +158,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "07 01 2017")! // You can use date generated from a formatter ALSO REMOVE THE FORCE UNWRAP
-        let endDate = formatter.date(from: "07 31 2017")! //Date()                                
+        let startDate = formatter.date(from: dateConvert(date: Date()))! // You can use date generated from a formatter ALSO REMOVE THE FORCE UNWRAP
+        let endDate = formatter.date(from: "12 31 2019")! //Date()
         // You can also use dates created from this function
         
         let parameters = ConfigurationParameters(startDate: startDate,
@@ -172,12 +183,15 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
         // TODO:
-        // use date that gets passed in to access corresponding journal
-            // need to caste date to NSDate type
-            // filter through allJournals to find the journal where journal.date == date
+       
+        let dateString = dateConvert(date: date)
+        
+        let dateJournal = allJournals[dateString]
+        
         // if journal.completed => handle cell selected true
-        
-        
+        cell.isSelected = dateJournal?.completedQ ?? false
+       
+    
         cell.dateLabel.text = cellState.text
             
         handleCellSelected(view: cell, cellState: cellState)
@@ -185,26 +199,40 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(view: cell, cellState: cellState)
        
         return cell
-            }
-        
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        //guard let validCell = cell as? CustomCell else { return }
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-            }
-        
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-            //guard let validCell = cell as? CustomCell else { return }
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-            
     }
+    
+//     function that deals with the user tapping on selected dates
+//    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+//       
+//        handleCellSelected(view: cell, cellState: cellState)
+//        handleCellTextColor(view: cell, cellState: cellState)
+//            }
+// 
+//    function that deals with the user tapping on selected dates and deselecting other dates
+//    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+//        
+//        handleCellSelected(view: cell, cellState: cellState)
+//        handleCellTextColor(view: cell, cellState: cellState)
+//            
+//    }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(from: visibleDates)
     }
     
-            
+    //helps convert journal dates
+    func dateConvert(date: Date?) -> String {
+        if date == nil {
+            return ""
+        }
+        
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "MM dd yyyy"
+        return formatter.string(from: date! as Date) //can force unwrap bc already checked at top
+        
+    }
+
 }
 
 extension UIColor {
